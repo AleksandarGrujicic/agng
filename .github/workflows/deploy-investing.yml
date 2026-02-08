@@ -3,7 +3,7 @@ name: Deploy Investing App to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-deploy:
@@ -20,14 +20,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build investing app
-        run: npx nx run investing:build:production
+        run: npx nx run investing:build:production --verbose
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
