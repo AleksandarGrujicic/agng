@@ -1,0 +1,11 @@
+{
+  "name": "investing-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/investing-e2e/src",
+  "implicitDependencies": [
+    "investing"
+  ],
+  "// targets": "to see all targets run: nx show project investing-e2e --web",
+  "targets": {}
+}
