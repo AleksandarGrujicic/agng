@@ -1,14 +1,15 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Translation, TranslocoLoader } from '@jsverse/transloco';
-import { APP_BASE_HREF } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class TranslocoHttpLoader implements TranslocoLoader {
   private http = inject(HttpClient);
-  private baseHref = inject(APP_BASE_HREF, { optional: true }) ?? '/';
+  private document = inject(DOCUMENT);
 
   getTranslation(lang: string) {
-    return this.http.get<Translation>(`${this.baseHref}i18n/${lang}.json`);
+    const base = this.document.querySelector('base')?.getAttribute('href') ?? '/';
+    return this.http.get<Translation>(`${base}i18n/${lang}.json`);
   }
 }
