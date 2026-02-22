@@ -26,11 +26,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build investing app
+      - name: Build finance app
         run: npx nx run finance:build:production --verbose
 
       - name: Copy index.html to 404.html for SPA routing
-        run: cp dist/apps/investing/browser/index.html dist/apps/investing/browser/404.html
+        run: cp dist/apps/finance/browser/index.html dist/apps/finance/browser/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
