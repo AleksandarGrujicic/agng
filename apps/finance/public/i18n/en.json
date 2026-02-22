@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "calculator": "Calculator"
+  },
+  "header": {
+    "title": "Finance",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
+  },
+  "footer": {
+    "copyright": "© 2026 agng. All rights reserved."
+  },
+  "calculator": {
+    "title": "Investment Calculator",
+    "subtitle": "Calculate your investment growth",
+    "intro": {
+      "heading": "The bank takes. The market gives.",
+      "body": "Money sitting in an account loses value. Invested — it grows. That’s not magic, it’s compound interest."
+    },
+    "form": {
+      "step1Desc": "How much do you have saved up right now?",
+      "step2Desc": "How much can you set aside each month?",
+      "step3Desc": "What yearly return do you expect?",
+      "step4Desc": "How many years will you stay invested?",
+      "initialInvestment": "Initial Investment",
+      "initialInvestmentHint": "Your starting lump sum — €0 is perfectly fine",
+      "monthlyInvestment": "Monthly Contribution",
+      "monthlyInvestmentHint": "Even €50–100/month makes a big difference",
+      "annualReturn": "Annual Return Rate",
+      "annualReturnHint": "8–10% is typical for a broad stock index fund",
+      "years": "Investment Period",
+      "yearsHint": "Longer = more compound interest",
+      "yearsSuffix": "yrs"
+    },
+    "howItWorks": {
+      "label": "How does this work?",
+      "body": "This calculator simulates compound interest \u2014 where your returns start generating their own returns. Example: invest \u20ac1,000 and earn 9% \u2014 that's \u20ac90. Next year, the full \u20ac1,090 earns 9%. The gap between what you put in and your final portfolio value is pure market gain \u2014 money the market made for you, not from your salary. The MSCI World Index tracks ~1,400 large and mid-cap companies across 23 developed countries. It is the benchmark behind most global ETFs available in Europe. Historical average return: ~9-10% per year over the last 32 years.",
+      "chartTitle": "MSCI World Index (1995–2026)"
+    },
+    "results": {
+      "growthHeadline": "Your money could grow {{times}}× — that's the power of compounding",
+      "totalValue": "Total Portfolio Value",
+      "totalValueDesc": "What your portfolio will be worth after the full period",
+      "totalContributions": "Total Contributions",
+      "totalContributionsDesc": "Your own money put in over time",
+      "investmentGains": "Investment Gains",
+      "investmentGainsDesc": "Extra money earned through compound interest — for free",
+      "breakdown": "Year-by-Year Breakdown",
+      "colYear": "Year",
+      "colContributions": "Total Contributions",
+      "colPortfolioValue": "Portfolio Value",
+      "colInvestmentGain": "Investment Gain"
+    },
+    "chart": {
+      "title": "Investment Growth Over Time",
+      "yearLabel": "Year {{year}}"
+    }
+  }
+}

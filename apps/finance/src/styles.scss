@@ -1,0 +1,71 @@
+// =============================================================================
+// Global styles — apps/investing
+// Angular Material v19+ theming: mat.theme() emits light-dark() color values.
+// Switching is just `color-scheme: dark` on <body>.
+// =============================================================================
+@use '@angular/material' as mat;
+@use '../../../libs/shared/ui/src/styles/reset';
+@use '../../../libs/shared/ui/src/styles/palette' as p;
+
+// Single mat.theme() call — emits BOTH light + dark values using CSS light-dark()
+html {
+  color-scheme: light;
+  @include mat.theme((
+    color: (
+      primary: mat.$cyan-palette,
+      tertiary: mat.$orange-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+// Dark mode: flip color-scheme on html — same element where mat.theme()
+// defines light-dark() custom properties, ensuring correct resolution.
+html.dark-mode {
+  color-scheme: dark;
+
+  // Shadows — stronger on dark surfaces
+  --shadow-sm: 0 1px  3px rgba(0,0,0,0.30), 0 1px  2px rgba(0,0,0,0.20);
+  --shadow-md: 0 4px  6px rgba(0,0,0,0.28), 0 2px  4px rgba(0,0,0,0.22);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.35), 0 4px  6px rgba(0,0,0,0.25);
+
+  // Custom tokens — logo-matching: bright glowing teal on deep navy
+  --color-primary:       #{p.$primary-300}; // bright circuit teal
+  --color-primary-light: #{p.$primary-200};
+  --color-primary-dark:  #{p.$primary-500};
+  --color-accent:        #{p.$secondary-300}; // warmer amber pop on dark
+  --color-border:        #{p.$primary-800};   // teal-tinted border
+}
+
+// Surface & text defaults via Material system tokens
+body {
+  margin: 0;
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font-family: var(--mat-sys-body-large-font);
+}
+
+// Custom CSS variables for our own components (sidebar, footer, etc.)
+html {
+  --color-primary:        #{p.$primary-500};
+  --color-primary-light:  #{p.$primary-300};
+  --color-primary-dark:   #{p.$primary-700};
+  --color-accent:         #{p.$secondary-400};
+  --color-accent-light:   #{p.$secondary-200};
+  --color-bg:             light-dark(#{p.$neutral-50}, #{p.$neutral-900});
+  --color-surface:        light-dark(#{p.$neutral-0}, #{p.$neutral-800});
+  --color-border:         light-dark(#{p.$neutral-200}, #{p.$neutral-700});
+  --color-text:           light-dark(#{p.$neutral-900}, #{p.$neutral-50});
+  --color-text-muted:     light-dark(#{p.$neutral-500}, #{p.$neutral-400});
+  --color-success:        #{p.$color-success};
+  --color-warning:        #{p.$color-warning};
+  --color-error:          #{p.$color-error};
+  --color-info:           #{p.$color-info};
+  --shadow-sm:            0 1px  3px rgba(0,0,0,0.10), 0 1px  2px rgba(0,0,0,0.06);
+  --shadow-md:            0 4px  6px rgba(0,0,0,0.07), 0 2px  4px rgba(0,0,0,0.06);
+  --shadow-lg:            0 10px 15px rgba(0,0,0,0.10), 0 4px  6px rgba(0,0,0,0.05);
+  --header-height:        64px;
+  --sidebar-width:        260px;
+  --font-sans:            'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}

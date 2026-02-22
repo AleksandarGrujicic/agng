@@ -1,0 +1,31 @@
+// =============================================================================
+// Typography tokens
+// Material M3 typography is configured via mat.define-theme() in _theme.scss.
+// These plain SCSS variables are available for custom component styling.
+// =============================================================================
+
+// Font families
+$font-sans:  'Roboto', 'Helvetica Neue', Arial, sans-serif;
+$font-mono:  'Roboto Mono', 'Courier New', monospace;
+
+// Font sizes (modular scale, ratio ~1.25)
+$text-xs:   0.75rem;   //  12px
+$text-sm:   0.875rem;  //  14px
+$text-base: 1rem;      //  16px
+$text-lg:   1.125rem;  //  18px
+$text-xl:   1.25rem;   //  20px
+$text-2xl:  1.5rem;    //  24px
+$text-3xl:  1.875rem;  //  30px
+$text-4xl:  2.25rem;   //  36px
+
+// Font weights
+$weight-light:   300;
+$weight-regular: 400;
+$weight-medium:  500;
+$weight-bold:    700;
+
+// Line heights
+$leading-tight:  1.25;
+$leading-snug:   1.375;
+$leading-normal: 1.5;
+$leading-relaxed: 1.625;

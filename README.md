@@ -1,29 +1,29 @@
-# Nx Angular Repository
+# Investing Dashboard - Nx Angular Monorepo
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ A repository showcasing key [Nx](https://nx.dev) features for Angular monorepos ✨
+✨ A production-ready Angular monorepo showcasing key [Nx](https://nx.dev) features ✨
 
 ## 📦 Project Overview
 
-This repository demonstrates a production-ready Angular monorepo with:
+This repository contains an investment dashboard application with organized shared libraries following Nx best practices:
 
-- **2 Applications**
+- **1 Application**
 
-  - `shop` - Angular e-commerce application with product listings and detail views
-  - `api` - Backend API with Docker support serving product data
+  - `investing` - Investment calculator and dashboard application
 
-- **6 Libraries**
+- **2 Feature Libraries (Investing Scope)**
 
-  - `@org/feature-products` - Product listing feature (Angular)
-  - `@org/feature-product-detail` - Product detail feature (Angular)
-  - `@org/data` - Data access layer for shop features
-  - `@org/shared-ui` - Shared UI components
-  - `@org/models` - Shared data models
-  - `@org/products` - API product service library
+  - `@investing/calculator` - Investment calculator feature
+  - `@investing/dashboard` - Dashboard feature
+
+- **2 Shared Libraries (Shared Scope)**
+
+  - `@shared/ui` - UI component library with shell layout (header, footer, sidebar, layout)
+  - `@shared/utils` - Utility functions and data access helpers
 
 - **E2E Testing**
-  - `shop-e2e` - Playwright tests for the shop application
+  - `investing-e2e` - Playwright tests for the investing application
 
 ## 🚀 Quick Start
 
@@ -36,11 +36,8 @@ cd <your-repository-name>
 # (Note: You may need --legacy-peer-deps)
 npm install
 
-# Serve the Angular shop application (this will simultaneously serve the API backend)
-npx nx serve shop
-
-# ...or you can serve the API separately
-npx nx serve api
+# Serve the investing application
+npx nx serve investing
 
 # Build all projects
 npx nx run-many -t build
@@ -52,11 +49,10 @@ npx nx run-many -t test
 npx nx run-many -t lint
 
 # Run e2e tests
-npx nx e2e shop-e2e
+npx nx run investing-e2e:e2e
 
 # Run tasks in parallel
-
-npx nx run-many -t lint test build e2e --parallel=3
+npx nx run-many -t lint test build --parallel=3
 
 # Visualize the project graph
 npx nx graph
@@ -68,45 +64,42 @@ This repository showcases several powerful Nx features:
 
 ### 1. 🔒 Module Boundaries
 
-Enforces architectural constraints using tags. Each project has specific dependencies it can use:
+Enforces architectural constraints using tags. The repository follows a strict dependency model:
 
-- `scope:shared` - Can be used by all projects
-- `scope:shop` - Shop-specific libraries
-- `scope:api` - API-specific libraries
+- `scope:shared` - Shared UI components used by all projects
+- `scope:investing` - Investing-specific feature libraries
 - `type:feature` - Feature libraries
-- `type:data` - Data access libraries
 - `type:ui` - UI component libraries
+- `type:e2e` - End-to-end testing projects
 
 **Try it out:**
 
 ```bash
-# See the current project graph and boundaries
+# See the current project graph and dependencies
 npx nx graph
 
 # View a specific project's details
-npx nx show project shop --web
+npx nx show project investing --web
 ```
 
 [Learn more about module boundaries →](https://nx.dev/features/enforce-module-boundaries)
 
-### 2. 🐳 Docker Integration
+### 2. 📊 Organized Scope-Based Architecture
 
-The API project includes Docker support with automated targets and release management:
+Libraries are organized by feature scope with clear, multi-level dependencies:
 
-```bash
-# Build Docker image
-npx nx docker:build api
+**Shared Scope** (`libs/shared/`)
+- `ui` - UI components and shell layout components
+- `utils` - Shared utilities and data access functions
 
-# Run Docker container
-npx nx docker:run api
+**Investing Scope** (`libs/investing/`)
+- `calculator` - Investment calculator feature
+- `dashboard` - Dashboard display feature
 
-# Release with automatic Docker image versioning
-npx nx release
-```
-
-**Nx Release for Docker:** The repository is configured to use Nx Release for managing Docker image versioning and publishing. When running `nx release`, Docker images for the API project are automatically versioned and published based on the release configuration in `nx.json`. This integrates seamlessly with semantic versioning and changelog generation.
-
-[Learn more about Docker integration →](https://nx.dev/recipes/nx-release/release-docker-images)
+**Dependency Rules:**
+- Applications and feature libraries in `scope:investing` can depend on `@shared/*` and other `@investing/*` libraries
+- `@shared/*` libraries can only depend on other `@shared/*` libraries
+- All scope:shared libraries are available to all consuming projects
 
 ### 3. 🎭 Playwright E2E Testing
 

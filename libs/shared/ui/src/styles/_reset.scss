@@ -1,0 +1,19 @@
+// Minimal reset that plays well with Angular Material
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body { margin: 0; line-height: 1.5; }
+
+img, svg { display: block; max-width: 100%; }
+
+input, button, textarea, select { font: inherit; }
+
+p, h1, h2, h3, h4, h5, h6 { margin: 0; overflow-wrap: break-word; }
+
+ul, ol { list-style: none; margin: 0; padding: 0; }
+
+a { color: inherit; text-decoration: none; }

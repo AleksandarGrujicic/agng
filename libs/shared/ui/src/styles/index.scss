@@ -1,0 +1,7 @@
+// Barrel — import this from any library or component that needs design tokens
+@forward 'palette';
+@forward 'variables';
+@forward 'typography';
+@forward 'reset';
+// Note: _theme.scss is NOT forwarded here because it emits Angular Material
+// CSS output — include it only once from the global styles.scss entry point.

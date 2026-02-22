@@ -1,0 +1,12 @@
+<div class="layout-container">
+  <lib-header [sidebarOpen]="isSidebarOpen" (toggleSidebar)="onToggleSidebar()"></lib-header>
+  <div class="layout-content">
+    <div class="sidebar-wrapper" [class.closed]="!isSidebarOpen">
+      <lib-sidebar></lib-sidebar>
+    </div>
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+  <lib-footer></lib-footer>
+</div>

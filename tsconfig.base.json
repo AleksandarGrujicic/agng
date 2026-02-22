@@ -15,14 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@org/api/products": ["libs/api/products/src/index.ts"],
-      "@org/models": ["libs/shared/models/src/index.ts"],
-      "@org/shop/data": ["libs/shop/data/src/index.ts"],
-      "@org/shop/feature-product-detail": [
-        "libs/shop/feature-product-detail/src/index.ts"
-      ],
-      "@org/shop/feature-products": ["libs/shop/feature-products/src/index.ts"],
-      "@org/shop/shared-ui": ["libs/shop/shared-ui/src/index.ts"]
+      "@finance/*": ["libs/investing/src/lib/*"],
+      "@finance/index": ["libs/investing/src/index.ts"],
+      "@shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@shared/ui/*": ["libs/shared/ui/src/lib/*"],
+      "@shared/utils": ["libs/shared/utils/src/index.ts"],
+      "@shared/utils/*": ["libs/shared/utils/src/lib/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

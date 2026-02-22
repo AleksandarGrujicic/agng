@@ -1,0 +1,295 @@
+// =============================================================================
+// Calculator component styles
+// Colors: CSS custom properties (--mat-sys-* / --color-*) for theme support.
+// Spacing/typography: SCSS variables from shared-ui/styles (via includePaths).
+// =============================================================================
+@use 'styles/variables' as v;
+
+// ---- Container ---------------------------------------------------------------
+
+.calculator-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: v.$space-5;
+}
+
+.calculator-card {
+  box-shadow: v.$shadow-md;
+}
+
+// ---- Intro banner -----------------------------------------------------------
+
+.intro-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: v.$space-4;
+  padding: v.$space-5 v.$space-6;
+  background: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+  border-radius: v.$radius-md;
+  margin-bottom: v.$space-6;
+}
+
+.intro-heading {
+  margin: 0 0 v.$space-2;
+  font-size: v.$text-xl;
+  font-weight: 600;
+}
+
+.intro-body {
+  margin: 0;
+  font-size: v.$text-sm;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+mat-card-header {
+  margin-bottom: v.$space-5;
+}
+
+mat-card-title {
+  font-size: v.$text-3xl;
+  font-weight: 500;
+}
+
+mat-card-subtitle {
+  font-size: v.$text-sm;
+  color: var(--color-text-muted);
+}
+
+// ---- Form --------------------------------------------------------------------
+
+.form-section {
+  margin-bottom: v.$space-6;
+  padding-bottom: v.$space-5;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: v.$space-5;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+// ---- Step labels -------------------------------------------------------------
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-2;
+}
+
+.step-label {
+  display: flex;
+  align-items: center;
+  gap: v.$space-2;
+  min-height: calc(v.$text-sm * 1.5 * 2); // reserve two lines so all fields align
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+  font-size: v.$text-xs;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-desc {
+  font-size: v.$text-sm;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+// ---- How it works panel ------------------------------------------------------
+
+.how-it-works {
+  margin-top: v.$space-5;
+  background: var(--mat-sys-surface-container-low);
+
+  // Make the default Material chevron clearly visible
+  .mat-expansion-indicator::after {
+    color: var(--mat-sys-primary);
+    border-width: 3px;
+  }
+
+  p {
+    font-size: v.$text-sm;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0 0 v.$space-5;
+  }
+}
+
+.history-chart-section {
+  margin-top: v.$space-4;
+  padding: v.$space-4;
+  background: var(--mat-sys-surface-container-lowest);
+  border-radius: v.$radius-md;
+}
+
+.history-chart {
+  max-height: 320px;
+}
+
+// ---- Results -----------------------------------------------------------------
+
+.results-section {
+  margin-top: v.$space-6;
+}
+
+// ---- Growth headline ---------------------------------------------------------
+
+.growth-headline {
+  text-align: center;
+  font-size: v.$text-xl;
+  font-weight: 700;
+  padding: v.$space-4 v.$space-6;
+  background: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+  border-radius: v.$radius-md;
+  margin-bottom: v.$space-6;
+  line-height: 1.4;
+}
+
+// ---- Summary cards -----------------------------------------------------------
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: v.$space-4;
+  margin-bottom: v.$space-6;
+}
+
+.summary-card {
+  text-align: center;
+  padding: v.$space-5;
+  background: var(--mat-sys-surface-container-low);
+
+  mat-card-content {
+    padding: 0;
+  }
+}
+
+.summary-label {
+  font-size: v.$text-sm;
+  color: var(--color-text-muted);
+  margin-bottom: v.$space-2;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-value {
+  font-size: v.$text-3xl;
+  font-weight: 600;
+  color: var(--color-text);
+
+  &--primary  { color: var(--mat-sys-primary); }
+  &--tertiary { color: var(--mat-sys-tertiary); }
+  &--positive { color: var(--color-success); }
+}
+
+.summary-desc {
+  font-size: v.$text-xs;
+  color: var(--color-text-muted);
+  margin-top: v.$space-2;
+  line-height: 1.4;
+}
+
+// ---- Chart -------------------------------------------------------------------
+
+.chart-section {
+  margin: v.$space-6 0;
+  padding: v.$space-5;
+  background-color: var(--mat-sys-surface-container-lowest);
+  border-radius: v.$radius-md;
+}
+
+.investment-chart {
+  max-height: 400px;
+}
+
+// ---- Breakdown table ---------------------------------------------------------
+
+.table-section {
+  margin-top: v.$space-6;
+
+  h3 {
+    margin-bottom: v.$space-4;
+    color: var(--color-text);
+    font-size: v.$text-lg;
+    font-weight: 500;
+  }
+}
+
+.breakdown-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    background-color: var(--mat-sys-primary);
+    color: var(--mat-sys-on-primary);
+    padding: v.$space-4;
+    text-align: left;
+    font-weight: 600;
+    border: none;
+  }
+
+  td {
+    padding: v.$space-3 v.$space-4;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  tr:hover {
+    background-color: var(--mat-sys-surface-container-high);
+  }
+
+  .positive { color: var(--color-success); }
+  .negative { color: var(--color-error); }
+}
+
+// ---- Responsive --------------------------------------------------------------
+
+@media (max-width: v.$bp-md) {
+  .calculator-container {
+    padding: v.$space-3;
+  }
+
+  .intro-banner {
+    flex-direction: column;
+    gap: v.$space-2;
+    padding: v.$space-4;
+  }
+
+  .form-grid,
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  mat-card-title {
+    font-size: v.$text-2xl;
+  }
+
+  .summary-value {
+    font-size: v.$text-2xl;
+  }
+
+  .breakdown-table {
+    font-size: v.$text-xs;
+
+    th,
+    td {
+      padding: v.$space-2 v.$space-3;
+    }
+  }
+}

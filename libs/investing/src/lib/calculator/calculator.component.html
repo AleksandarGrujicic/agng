@@ -1,0 +1,178 @@
+<div class="calculator-container" *transloco="let t">
+  <!-- Intro Banner -->
+  <div class="intro-banner">
+    <div class="intro-content">
+      <h2 class="intro-heading">{{ t('calculator.intro.heading') }}</h2>
+      <p class="intro-body">{{ t('calculator.intro.body') }}</p>
+    </div>
+  </div>
+
+  <mat-card class="calculator-card">
+    <mat-card-header>
+      <mat-card-title>{{ t('calculator.title') }}</mat-card-title>
+      <mat-card-subtitle>{{ t('calculator.subtitle') }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- Form Section -->
+      <div class="form-section">
+        <form [formGroup]="form">
+          <div class="form-grid">
+
+            <div class="form-step">
+              <div class="step-label">
+                <span class="step-number">1</span>
+                <span class="step-desc">{{ t('calculator.form.step1Desc') }}</span>
+              </div>
+              <mat-form-field appearance="fill">
+                <mat-label>{{ t('calculator.form.initialInvestment') }} (€)</mat-label>
+                <input matInput type="number" formControlName="initialInvestment" />
+                <mat-hint>{{ t('calculator.form.initialInvestmentHint') }}</mat-hint>
+              </mat-form-field>
+            </div>
+
+            <div class="form-step">
+              <div class="step-label">
+                <span class="step-number">2</span>
+                <span class="step-desc">{{ t('calculator.form.step2Desc') }}</span>
+              </div>
+              <mat-form-field appearance="fill">
+                <mat-label>{{ t('calculator.form.monthlyInvestment') }} (€)</mat-label>
+                <input matInput type="number" formControlName="monthlyInvestment" />
+                <mat-hint>{{ t('calculator.form.monthlyInvestmentHint') }}</mat-hint>
+              </mat-form-field>
+            </div>
+
+            <div class="form-step">
+              <div class="step-label">
+                <span class="step-number">3</span>
+                <span class="step-desc">{{ t('calculator.form.step3Desc') }}</span>
+              </div>
+              <mat-form-field appearance="fill">
+                <mat-label>{{ t('calculator.form.annualReturn') }} (%)</mat-label>
+                <input matInput type="number" step="0.1" formControlName="returnRate" />
+                <mat-hint>{{ t('calculator.form.annualReturnHint') }}</mat-hint>
+              </mat-form-field>
+            </div>
+
+            <div class="form-step">
+              <div class="step-label">
+                <span class="step-number">4</span>
+                <span class="step-desc">{{ t('calculator.form.step4Desc') }}</span>
+              </div>
+              <mat-form-field appearance="fill">
+                <mat-label>{{ t('calculator.form.years') }} ({{ t('calculator.form.yearsSuffix') }})</mat-label>
+                <input matInput type="number" formControlName="years" />
+                <mat-hint>{{ t('calculator.form.yearsHint') }}</mat-hint>
+              </mat-form-field>
+            </div>
+
+          </div>
+        </form>
+
+        <mat-expansion-panel class="how-it-works">
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{ t('calculator.howItWorks.label') }}</mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>{{ t('calculator.howItWorks.body') }}</p>
+          <div class="history-chart-section">
+            <canvas
+              baseChart
+              [data]="historyChartData"
+              type="line"
+              [options]="historyChartOptions"
+              class="history-chart"
+            ></canvas>
+          </div>
+        </mat-expansion-panel>
+      </div>
+
+      <!-- Results Section -->
+      @if (result) {
+        <div class="results-section">
+          <!-- Growth headline -->
+          <div class="growth-headline">
+            {{ t('calculator.results.growthHeadline', { times: growthMultiplier }) }}
+          </div>
+
+          <!-- Summary Cards -->
+          <div class="summary-cards">
+            <mat-card class="summary-card">
+              <mat-card-content>
+                <div class="summary-label">{{ t('calculator.results.totalValue') }}</div>
+                <div class="summary-value summary-value--primary">
+                  {{ formatCurrency(result.totalValue) }}
+                </div>
+                <div class="summary-desc">{{ t('calculator.results.totalValueDesc') }}</div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="summary-card">
+              <mat-card-content>
+                <div class="summary-label">{{ t('calculator.results.totalContributions') }}</div>
+                <div class="summary-value summary-value--tertiary">
+                  {{ formatCurrency(result.totalContributions) }}
+                </div>
+                <div class="summary-desc">{{ t('calculator.results.totalContributionsDesc') }}</div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="summary-card">
+              <mat-card-content>
+                <div class="summary-label">{{ t('calculator.results.investmentGains') }}</div>
+                <div class="summary-value summary-value--positive">
+                  {{ formatCurrency(result.totalGain) }}
+                </div>
+                <div class="summary-desc">{{ t('calculator.results.investmentGainsDesc') }}</div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+          <!-- Chart Section -->
+          <div class="chart-section">
+            <canvas
+              baseChart
+              [data]="chartData"
+              type="line"
+              [options]="chartOptions"
+              class="investment-chart"
+            ></canvas>
+          </div>
+
+          <!-- Table Section -->
+          <div class="table-section">
+            <h3>{{ t('calculator.results.breakdown') }}</h3>
+            <table mat-table [dataSource]="yearlyData" class="breakdown-table">
+              <ng-container matColumnDef="year">
+                <th mat-header-cell *matHeaderCellDef>{{ t('calculator.results.colYear') }}</th>
+                <td mat-cell *matCellDef="let element">{{ element.year }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="contributions">
+                <th mat-header-cell *matHeaderCellDef>{{ t('calculator.results.colContributions') }}</th>
+                <td mat-cell *matCellDef="let element">{{ formatCurrency(element.contributions) }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="totalValue">
+                <th mat-header-cell *matHeaderCellDef>{{ t('calculator.results.colPortfolioValue') }}</th>
+                <td mat-cell *matCellDef="let element">{{ formatCurrency(element.totalValue) }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="gain">
+                <th mat-header-cell *matHeaderCellDef>{{ t('calculator.results.colInvestmentGain') }}</th>
+                <td mat-cell *matCellDef="let element">
+                  <span [class.positive]="element.gain >= 0" [class.negative]="element.gain < 0">
+                    {{ formatCurrency(element.gain) }}
+                  </span>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+          </div>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

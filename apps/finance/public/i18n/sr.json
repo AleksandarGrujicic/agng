@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "dashboard": "Kontrolna tabla",
+    "calculator": "Kalkulator"
+  },
+  "header": {
+    "title": "Finansije",
+    "openMenu": "Otvori meni",
+    "closeMenu": "Zatvori meni",
+    "switchToLight": "Prebaci na svetlu temu",
+    "switchToDark": "Prebaci na tamnu temu"
+  },
+  "footer": {
+    "copyright": "© 2026 agng. Sva prava zadržana."
+  },
+  "calculator": {
+    "title": "Kalkulator investicija",
+    "subtitle": "Izračunajte rast vaše investicije",
+    "intro": {
+      "heading": "Banka uzima, tržište daje.",
+      "body": "Novac na računu gubi vrednost. Uložen — raste. Razlika nije magija, to su složene kamate."
+    },
+    "form": {
+      "step1Desc": "Koliko novca imate uštedjeđenog sada?",
+      "step2Desc": "Koliko možete da odložite svaki mesec?",
+      "step3Desc": "Kakav godišnji prinos očekujete?",
+      "step4Desc": "Koliko godina planirate da investirate?",
+      "initialInvestment": "Početna investicija",
+      "initialInvestmentHint": "Vaš početni iznos — €0 je sasvim u redu",
+      "monthlyInvestment": "Mesečni doprinos",
+      "monthlyInvestmentHint": "Čak i €50–100 mesečno pravi veliku razliku",
+      "annualReturn": "Godišnja stopa prinosa",
+      "annualReturnHint": "Globalni indeksni fondovi istorijski nose 8–10% godišnje",
+      "years": "Period investiranja",
+      "yearsHint": "Duže = više složenih kamata",
+      "yearsSuffix": "god"
+    },
+    "howItWorks": {
+      "label": "Kako ovo funkcioniše?",
+      "body": "Ovaj kalkulator simulira složene kamate — fenomen gde vaši prihodi sami počinju da zarađuju prihode. Na primer: uložite €1.000 i zaradite 9% — to je €90. Sledeće godine tih €1.090 takođe zarađuje 9%. Razlika između vaših uplata i krajnje vrednosti portfolija je čist dobitak koji niste nigde 'zaradili' — tržište je radilo umesto vas. MSCI World indeks prati ~1.400 velikih i srednjih kompanija iz 23 razvijene zemlje. To je referentni indeks iza većine globalnih ETF-ova dostupnih u Evropi. Istorijski prinos: oko 9-10% godišnje, u proseku, tokom poslednjih 32 godine.",
+      "chartTitle": "MSCI World indeks (1995–2026)"
+    },
+    "results": {
+      "growthHeadline": "Vaš novac može da naraste {{times}}× — to je snaga složenih kamata",
+      "totalValue": "Ukupna vrednost portfolija",
+      "totalValueDesc": "Vrednost portfolija nakon celokupnog perioda",
+      "totalContributions": "Ukupne uplate",
+      "totalContributionsDesc": "Novac koji ste vi lično uložili tokom vremena",
+      "investmentGains": "Prinos na investiciju",
+      "investmentGainsDesc": "Zarađen novac kroz složene kamate — besplatno",
+      "breakdown": "Pregled po godinama",
+      "colYear": "Godina",
+      "colContributions": "Ukupne uplate",
+      "colPortfolioValue": "Vrednost portfolija",
+      "colInvestmentGain": "Prinos na investiciju"
+    },
+    "chart": {
+      "title": "Rast investicije tokom vremena",
+      "yearLabel": "Godina {{year}}"
+    }
+  }
+}

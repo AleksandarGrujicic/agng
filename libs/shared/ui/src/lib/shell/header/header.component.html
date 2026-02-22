@@ -1,0 +1,35 @@
+<mat-toolbar class="app-toolbar">
+  <mat-toolbar-row *transloco="let t">
+    <button
+      mat-icon-button
+      (click)="onToggleSidebar()"
+      [attr.aria-label]="sidebarOpen ? t('header.closeMenu') : t('header.openMenu')"
+    >
+      <mat-icon>{{ sidebarOpen ? 'menu_open' : 'menu' }}</mat-icon>
+    </button>
+
+    <a class="brand" routerLink="/">
+      <img src="/agng-logo.jpg" class="brand-mark" alt="agng" />
+      <span class="app-title">{{ t('header.title') }}</span>
+    </a>
+
+    <span class="spacer"></span>
+
+    <button
+      mat-button
+      class="lang-toggle"
+      (click)="i18n.toggle()"
+      [attr.aria-label]="'Switch language'"
+    >
+      {{ i18n.currentLang() === 'en' ? 'SR' : 'EN' }}
+    </button>
+
+    <button
+      mat-icon-button
+      (click)="theme.toggle()"
+      [attr.aria-label]="theme.isDark() ? t('header.switchToLight') : t('header.switchToDark')"
+    >
+      <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
