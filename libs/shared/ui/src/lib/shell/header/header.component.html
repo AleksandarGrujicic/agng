@@ -3,13 +3,14 @@
     <button
       mat-icon-button
       (click)="onToggleSidebar()"
-      [attr.aria-label]="sidebarOpen ? t('header.closeMenu') : t('header.openMenu')"
+      [attr.aria-label]="
+        sidebarOpen ? t('header.closeMenu') : t('header.openMenu')
+      "
     >
       <mat-icon>{{ sidebarOpen ? 'menu_open' : 'menu' }}</mat-icon>
     </button>
 
     <a class="brand" routerLink="/">
-      <img src="agng-logo.jpg" class="brand-mark" alt="agng" />
       <span class="app-title">{{ t('header.title') }}</span>
     </a>
 
@@ -27,7 +28,9 @@
     <button
       mat-icon-button
       (click)="theme.toggle()"
-      [attr.aria-label]="theme.isDark() ? t('header.switchToLight') : t('header.switchToDark')"
+      [attr.aria-label]="
+        theme.isDark() ? t('header.switchToLight') : t('header.switchToDark')
+      "
     >
       <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
     </button>

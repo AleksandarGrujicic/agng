@@ -1,45 +1,45 @@
 // =============================================================================
 // Color Palette — agng
-// Derived from the agng logo: dark navy background + vibrant circuit-teal glow
+// Sharpened Teal — original hue family, pushed contrast ratios
 // =============================================================================
 
-// Primary: Circuit Teal (matches the glowing traces in the agng logo)
-$primary-50:  hsl(194, 70%, 95%);
-$primary-100: hsl(194, 67%, 85%);
-$primary-200: hsl(194, 65%, 72%);
-$primary-300: hsl(194, 63%, 56%);
-$primary-400: hsl(194, 68%, 42%);
-$primary-500: hsl(194, 72%, 32%); // ← main brand — teal circuit glow
-$primary-600: hsl(194, 76%, 24%);
-$primary-700: hsl(196, 80%, 17%);
-$primary-800: hsl(200, 82%, 12%);
-$primary-900: hsl(205, 85%,  8%);
+// Primary: Circuit Teal — sharper stops, more punch at both ends
+$primary-50:  hsl(186, 80%, 96%);
+$primary-100: hsl(187, 76%, 87%);
+$primary-200: hsl(188, 72%, 72%);
+$primary-300: hsl(189, 78%, 54%); // much brighter than before — vivid on dark
+$primary-400: hsl(191, 80%, 38%);
+$primary-500: hsl(193, 84%, 26%); // ← main brand — deeper, richer teal
+$primary-600: hsl(195, 88%, 18%);
+$primary-700: hsl(197, 90%, 12%);
+$primary-800: hsl(200, 92%,  8%);
+$primary-900: hsl(204, 94%,  5%);
 
-// Secondary: Amber (CTA, positive numbers — warm contrast to cool navy)
-$secondary-50:  hsl(43, 100%, 96%);
-$secondary-100: hsl(43,  96%, 88%);
-$secondary-200: hsl(43,  94%, 76%);
-$secondary-300: hsl(43,  92%, 62%);
-$secondary-400: hsl(43,  90%, 50%); // ← main accent
-$secondary-500: hsl(43,  88%, 40%);
-$secondary-600: hsl(43,  86%, 32%);
+// Secondary: Amber — punchier, higher chroma
+$secondary-50:  hsl(42, 100%, 96%);
+$secondary-100: hsl(42,  98%, 87%);
+$secondary-200: hsl(42,  96%, 73%);
+$secondary-300: hsl(41,  94%, 58%); // brighter pop on dark
+$secondary-400: hsl(40,  92%, 48%); // ← main accent — vivid amber
+$secondary-500: hsl(39,  88%, 37%);
+$secondary-600: hsl(38,  84%, 28%);
 
-// Neutral / Grey scale — navy-tinted to echo the logo background
+// Neutral / Grey scale — deeper navy darks, crisper light surfaces
 $neutral-0:    #ffffff;
-$neutral-50:   hsl(205, 14%, 96%);
-$neutral-100:  hsl(205, 12%, 91%);
-$neutral-200:  hsl(205, 10%, 82%);
-$neutral-300:  hsl(205,  9%, 68%);
-$neutral-400:  hsl(205,  8%, 52%);
-$neutral-500:  hsl(205,  9%, 38%);
-$neutral-600:  hsl(205, 14%, 26%);
-$neutral-700:  hsl(205, 20%, 17%);
-$neutral-800:  hsl(207, 28%, 11%); // logo dark navy surface
-$neutral-900:  hsl(210, 35%,  7%);
+$neutral-50:   hsl(200, 22%, 97%);
+$neutral-100:  hsl(202, 18%, 91%);
+$neutral-200:  hsl(203, 14%, 81%);
+$neutral-300:  hsl(204, 11%, 65%);
+$neutral-400:  hsl(205,  9%, 48%);
+$neutral-500:  hsl(206, 11%, 34%);
+$neutral-600:  hsl(207, 18%, 22%);
+$neutral-700:  hsl(208, 26%, 14%);
+$neutral-800:  hsl(210, 34%,  9%); // deeper navy — more contrast vs surface
+$neutral-900:  hsl(212, 42%,  5%);
 $neutral-1000: #000000;
 
 // Semantic colours
-$color-success: hsl(152, 52%, 38%);
-$color-warning: hsl(38,  92%, 50%);
-$color-error:   hsl(0,   70%, 50%);
-$color-info:    hsl(194, 70%, 45%);
+$color-success: hsl(152, 56%, 36%);
+$color-warning: hsl(38,  94%, 48%);
+$color-error:   hsl(0,   72%, 48%);
+$color-info:    hsl(191, 78%, 42%);

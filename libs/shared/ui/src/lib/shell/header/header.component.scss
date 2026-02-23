@@ -13,22 +13,12 @@
   }
 }
 
-// Dark mode: deep navy background + glowing teal bottom line (logo aesthetic)
+// Dark mode: keep mat-sys-primary background (dark-scheme teal) for the same
+// level of contrast vs the dark page as light mode gets — just add the glow.
 :host-context(html.dark-mode) .app-toolbar {
-  background: hsl(207, 28%, 10%) !important;
-  color: var(--color-primary) !important;
   box-shadow:
-    0 1px 0 0 var(--color-primary),
+    0 1px 0 0 rgba(255, 255, 255, 0.15),
     0 4px 16px rgba(0, 0, 0, 0.5) !important;
-
-  button[mat-icon-button] {
-    color: var(--color-primary);
-  }
-
-  .lang-toggle {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-  }
 }
 
 .brand {
@@ -64,7 +54,7 @@
   letter-spacing: 0.05em;
   min-width: 40px;
   color: var(--mat-sys-on-primary);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid color-mix(in srgb, var(--mat-sys-on-primary) 45%, transparent);
   border-radius: 4px;
   padding: 0 8px;
   height: 32px;

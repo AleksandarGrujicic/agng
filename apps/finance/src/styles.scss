@@ -30,11 +30,11 @@ html.dark-mode {
   --shadow-md: 0 4px  6px rgba(0,0,0,0.28), 0 2px  4px rgba(0,0,0,0.22);
   --shadow-lg: 0 10px 15px rgba(0,0,0,0.35), 0 4px  6px rgba(0,0,0,0.25);
 
-  // Custom tokens — logo-matching: bright glowing teal on deep navy
-  --color-primary:       #{p.$primary-300}; // bright circuit teal
+  // Custom tokens — dark mode: vivid circuit teal + amber on deep navy
+  --color-primary:       #{p.$primary-300}; // bright vivid teal on dark
   --color-primary-light: #{p.$primary-200};
   --color-primary-dark:  #{p.$primary-500};
-  --color-accent:        #{p.$secondary-300}; // warmer amber pop on dark
+  --color-accent:        #{p.$secondary-300}; // punchy amber pop on dark
   --color-border:        #{p.$primary-800};   // teal-tinted border
 }
 
@@ -48,10 +48,10 @@ body {
 
 // Custom CSS variables for our own components (sidebar, footer, etc.)
 html {
-  --color-primary:        #{p.$primary-500};
+  --color-primary:        #{p.$primary-500};  // deep rich teal
   --color-primary-light:  #{p.$primary-300};
   --color-primary-dark:   #{p.$primary-700};
-  --color-accent:         #{p.$secondary-400};
+  --color-accent:         #{p.$secondary-400}; // vivid amber CTA
   --color-accent-light:   #{p.$secondary-200};
   --color-bg:             light-dark(#{p.$neutral-50}, #{p.$neutral-900});
   --color-surface:        light-dark(#{p.$neutral-0}, #{p.$neutral-800});
